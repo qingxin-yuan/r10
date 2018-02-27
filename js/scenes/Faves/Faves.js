@@ -6,7 +6,7 @@ import { ActivityIndicator, ScrollView, Text, View, Image } from "react-native";
 import { styles } from "./styles";
 
 const Faves = () =>{
-
+  return <Text> HEYYYYYYOO!!!</Text>
 }
 
 export default Faves;

@@ -15,7 +15,7 @@ export default class AboutContainer extends Component {
 
   static route = {
     navigationBar:{
-      title: "eqweqweqw",
+      title: "About",
     }
   }
 
