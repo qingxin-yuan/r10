@@ -4,21 +4,27 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import {
 //   Text,
 //   View
 // } from 'react-native';
 
-import About from './scenes/about';
+import {
+  // createRouter,
+  NavigationProvider,
+  StackNavigation
+} from "@expo/ex-navigation";
+import About from "./scenes/About";
+import { Router } from "./navagation/routes";
 
 export default class App extends Component {
   render() {
     return (
-    
-      <About />
+      <NavigationProvider router={Router}>
+        <StackNavigation initialRoute={Router.getRoute("about")} />
+      </NavigationProvider>
+      // <About />
     );
   }
 }
-
-

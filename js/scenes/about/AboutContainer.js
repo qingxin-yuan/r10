@@ -1,15 +1,34 @@
 import React, { Component } from "react";
-import Proptypes from 'prop-types';
 
-import About from './About';
+// import Proptypes from "prop-types";
+// import { View,  Text } from "react-native";
 
+import About from "./About";
 
-export default class AboutContainer extends Component{
-  constructor(){
+// import { styles } from "./styles";
+
+export default class AboutContainer extends Component {
+  constructor() {
     super();
-    this.state= {}
+    this.state = { data: [] };
   }
-  render(){
-    return <About />
+
+  static route = {
+    navigationBar:{
+      title: "eqweqweqw",
+    }
+  }
+
+  componentDidMount() {
+    fetch("https://r10app-95fea.firebaseio.com/code_of_conduct.json")
+      .then(res => res.json())
+      .then(data => this.setState({ data }))
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  render() {
+    return <About data={this.state.data} />;
   }
 }
