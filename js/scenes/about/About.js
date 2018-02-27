@@ -5,8 +5,8 @@ import { ActivityIndicator, ScrollView, Text, View, Image } from "react-native";
 
 import { styles } from "./styles";
 
-const About = ({ data }) => {
-  return data.length ? (
+const About = ({ data, isLoading }) => {
+  return !isLoading ? (
     <View>
       <ScrollView>
         <View style={styles.image}>

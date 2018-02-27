@@ -14,9 +14,9 @@ import { colors, typography } from "../config/styles";
 const { black, mediumGrey, white } = colors;
 
 export default class NavigationLayout extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   renderTitleColor = (isSelected, title) => {
     return (

@@ -1,34 +1,38 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 // import Proptypes from "prop-types";
 // import { View,  Text } from "react-native";
 
 import About from "./About";
 
-// import { styles } from "./styles";
+import { getCodeOfConduct } from "../../redux/modules/about";
 
-export default class AboutContainer extends Component {
-  constructor() {
-    super();
-    this.state = { data: [] };
-  }
+
+class AboutContainer extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = { data: [] };
+  // }
 
   static route = {
-    navigationBar:{
-      title: "About",
+    navigationBar: {
+      title: "About"
     }
-  }
+  };
 
   componentDidMount() {
-    fetch("https://r10app-95fea.firebaseio.com/code_of_conduct.json")
-      .then(res => res.json())
-      .then(data => this.setState({ data }))
-      .catch(err => {
-        console.log(err);
-      });
+    this.props.dispatch(getCodeOfConduct())
   }
 
   render() {
-    return <About data={this.state.data} />;
+    return <About data={this.props.COC} isLoading={this.props.isLoading} />;
   }
 }
+
+const mapStateToProps = state => ({
+  isLoading: state.about.isLoading,
+  COC: state.about.COC,
+});
+
+export default connect(mapStateToProps)(AboutContainer);
