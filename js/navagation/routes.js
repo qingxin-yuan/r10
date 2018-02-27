@@ -1,11 +1,13 @@
 import { createRouter } from "@expo/ex-navigation";
 
-import AboutContainer from "../scenes/About";
-import FavesContainer from '../scenes/Faves/';
+import About from "../scenes/About";
+import Faves from '../scenes/Faves/';
 import NavigationLayout from'./NavigationLayout';
+import Schedule from '../scenes/Schedule/';
 
 export const Router = createRouter(() => ({
-  about: () => AboutContainer,
-  faves: () => FavesContainer,
-  layout: () => NavigationLayout
+  about: () => About,
+  faves: () => Faves,
+  layout: () => NavigationLayout,
+  schedule: () => Schedule,
 }));

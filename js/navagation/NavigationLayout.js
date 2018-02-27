@@ -1,47 +1,90 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
+import { Image, Text } from "react-native";
 import {
   StackNavigation,
   TabNavigation,
   TabNavigationItem as TabItem
 } from "@expo/ex-navigation";
+import Icon from "react-native-vector-icons/Ionicons";
+
 import { Router } from "./routes";
+
+import { colors, typography } from "../config/styles";
+
+const { black, mediumGrey, white } = colors;
 
 export default class NavigationLayout extends Component {
   constructor() {
     super();
   }
 
+  renderTitleColor = (isSelected, title) => {
+    return (
+      <Text
+        style={{
+          color: isSelected ? white : mediumGrey,
+          fontFamily: typography.fontMain,
+          fontSize: 12
+        }}
+      >
+        {title}
+      </Text>
+    );
+  };
+  renderIcon = (isSelected, iconName) => (
+    <Icon
+      active
+      name={iconName}
+      size={20}
+      color={isSelected ? white : mediumGrey}
+    />
+  );
+  // renderTitleColor = (isSelected, title) => {
+  //   return <Text style={{ color: isSelected ? white : mediumGrey }}>{title}</Text>
+  // };
+
   render() {
     return (
-      // put the tab bar/tab items/ stack navs here
-      <TabNavigation id="main" navigatorUID="main" initialTab="about">
+      <TabNavigation
+        id="main"
+        navigatorUID="main"
+        initialTab="schedule"
+        tabBarColor={black}
+      >
         <TabItem
-          id="about"
-          title="about"
-          // selectedStyle={styles.selectedTab}
-          renderIcon={isSelected => (
-            <Image source={require("../assets/images/r10_logo.png")} />
-          )}
+          id="schedule"
+          title="Schedule"
+          renderTitle={this.renderTitleColor}
+          renderIcon={isSelected => this.renderIcon(isSelected, "ios-calendar")}
         >
           <StackNavigation
-            id="about"
-            navigatorUID="about"
-            initialRoute={Router.getRoute("about")}
+            id="schedule"
+            navigatorUID="schedule"
+            initialRoute={Router.getRoute("schedule")}
           />
         </TabItem>
         <TabItem
           id="faves"
-          title="faves"
-          // selectedStyle={styles.selectedTab}
-          renderIcon={isSelected => (
-            <Image source={require("../assets/images/r10_logo.png")} />
-          )}
+          title="Faves"
+          renderTitle={this.renderTitleColor}
+          renderIcon={isSelected => this.renderIcon(isSelected, "ios-heart")}
         >
           <StackNavigation
             id="faves"
             navigatorUID="faves"
             initialRoute={Router.getRoute("faves")}
+          />
+        </TabItem>
+        <TabItem
+          id="about"
+          title="About"
+          renderTitle={this.renderTitleColor}
+          renderIcon={isSelected => this.renderIcon(isSelected, "ios-cafe")}
+        >
+          <StackNavigation
+            id="about"
+            navigatorUID="about"
+            initialRoute={Router.getRoute("about")}
           />
         </TabItem>
       </TabNavigation>

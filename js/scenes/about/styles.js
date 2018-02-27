@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 // import { Dimensions } from "react-native";
 
-// const { width } = Dimensions.get("window");
+import {typography, colors} from '../../config/styles';
 
 export const styles = StyleSheet.create({
   // margin: 10
@@ -11,23 +11,25 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   paragraph: {
-    fontSize: 15
+    fontSize: 15,
+    fontFamily: "Montserrat-Light"
   },
   heading:{
     fontSize: 23,
     marginVertical: 5,
+    fontFamily: 'Montserrat-Regular',
   },
   textBody: {
     paddingVertical: 20,
     marginHorizontal: 10,
     borderTopWidth: 1,
-    // borderTopColor: "#e6e6e6",
     borderBottomWidth: 1,
     borderColor: "#e6e6e6",
   },
   title: {
     color: "#9963ea",
     fontWeight: "bold",
+    fontFamily: "Montserrat-Regular",
     marginVertical: 10,
   },
   image: {
@@ -39,5 +41,6 @@ export const styles = StyleSheet.create({
   footer:{
     paddingVertical: 10,
     marginHorizontal: 10,
+    fontFamily: 'Montserrat-Light',
   }
 });

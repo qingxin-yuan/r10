@@ -18,7 +18,7 @@ const About = ({ data }) => {
             feelings in app dev.
           </Text>
           <Text style={styles.heading}>Date &amp; Venue</Text>
-          <Text>The R10 takes place at RED Academy on March 15, 2018. </Text>
+          <Text style={styles.paragraph} >The R10 takes place at RED Academy on March 15, 2018. </Text>
           <Text style={styles.heading}>Code of Conduct</Text>
           {data.map((item, index) => (
             <View key={index}>
