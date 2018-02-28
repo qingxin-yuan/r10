@@ -15,7 +15,7 @@ export const EventList = ({ data }) => {
         </View>}
         renderSectionHeader={({ section }) => (
           <Text style={{ fontSize: 20, color: "black" }}>
-            {moment(section.title).format("LT")}
+            {moment.unix(section.title).format("LT")}
           </Text>
         )}
         keyExtractor={(item, index) => index}
