@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import {
-  ListItem,
+  // ListItem,
   SectionList,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   View
 } from "react-native";
 import moment from "moment";
@@ -24,15 +24,15 @@ class EventList extends Component {
         <SectionList
           sections={this.state.data}
           renderItem={({ item }) => (
-            <TouchableHighlight
-              // onPress={goToSession("schedule", {item})}
-              activeOpacity={0.5}
+            <TouchableOpacity
+              onPress={()=>goToSession("schedule", item)}
+              activeOpacity={0.7}
             >
               <View>
                 <Text>{item.title}</Text>
                 <Text>{item.location}</Text>
               </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
           )}
           renderSectionHeader={({ section }) => (
             <Text style={{ fontSize: 20, color: "black" }}>

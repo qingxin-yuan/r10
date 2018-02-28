@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import {Text} from 'react-native';
+import { Text } from "react-native";
 
-const Session = () =>{
+const Session = ({ data }) => {
   // render(){
-    return <Text> Session!</Text>
+  return <Text> {data.title}</Text>;
   // }
-  
 };
 
 export default Session;
