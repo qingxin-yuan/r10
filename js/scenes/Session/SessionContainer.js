@@ -4,6 +4,7 @@ import { Text, View } from "react-native";
 import Session from "./Session";
 
 export default class SessionContainer extends Component {
+  
   constructor(props) {
     super(props);
   }
