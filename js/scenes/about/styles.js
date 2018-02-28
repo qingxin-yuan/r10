@@ -12,24 +12,24 @@ export const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 15,
-    fontFamily: "Montserrat-Light"
+    fontFamily: typography.fontMainLight
   },
   heading:{
-    fontSize: 23,
+    fontSize: 18,
     marginVertical: 5,
-    fontFamily: 'Montserrat-Regular',
+    fontFamily: typography.fontMain,
   },
   textBody: {
     paddingVertical: 20,
     marginHorizontal: 10,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: "#e6e6e6",
+    borderColor: colors.lightGrey,
   },
   title: {
-    color: "#9963ea",
+    color: colors.purple,
     fontWeight: "bold",
-    fontFamily: "Montserrat-Regular",
+    fontFamily: typography.fontMain,
     marginVertical: 10,
   },
   image: {
@@ -41,6 +41,6 @@ export const styles = StyleSheet.create({
   footer:{
     paddingVertical: 10,
     marginHorizontal: 10,
-    fontFamily: 'Montserrat-Light',
+    fontFamily: typography.fontMainLight
   }
 });

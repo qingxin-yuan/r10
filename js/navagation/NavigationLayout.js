@@ -39,9 +39,6 @@ export default class NavigationLayout extends Component {
       color={isSelected ? white : mediumGrey}
     />
   );
-  // renderTitleColor = (isSelected, title) => {
-  //   return <Text style={{ color: isSelected ? white : mediumGrey }}>{title}</Text>
-  // };
 
   render() {
     return (

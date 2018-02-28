@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Schedule from "./Schedule";
+import {asyncGetEvents} from '../../redux/modules/event';
 
-export default class ScheduleContainer extends Component {
+class ScheduleContainer extends Component {
   constructor() {
     super()
   }
@@ -15,7 +17,19 @@ export default class ScheduleContainer extends Component {
     }
   }
 
+  componentDidMount(){
+    this.props.dispatch(asyncGetEvents())
+  }
+
+
   render() {
-    return <Schedule />;
+    return <Schedule events={this.props.events} isLoading={this.props.isLoading} />;
   }
 }
+
+const mapStateToProps = state => ({
+  isLoading: state.event.isLoading,
+  events: state.event.events,
+});
+
+export default connect(mapStateToProps)(ScheduleContainer);
