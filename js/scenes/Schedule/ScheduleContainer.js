@@ -22,9 +22,6 @@ class ScheduleContainer extends Component {
     this.props.dispatch(asyncGetEvents());
   }
 
-  // goToSession(event) {
-  //   this.props.navigator.push(Router.getRoute("session", { data: event }));
-  // }
 
   render() {
     return (

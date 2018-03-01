@@ -24,7 +24,7 @@ export const asyncGetEvents = () => dispatch => {
     .then(res => res.json())
     .then(data => {
       // data = formatDataObject(data);
-      dispatch(getEvents(formatSessionData(data)));
+      dispatch(getEvents(data));
     })
     .catch(err => {
       console.log(err);
