@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import Schedule from "./Schedule";
 import { asyncGetEvents } from "../../redux/modules/event";
+import {formatSessionData} from '../../redux/modules/helpers';
 
 class ScheduleContainer extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class ScheduleContainer extends Component {
   render() {
     return (
       <Schedule
-        events={this.props.events}
+        events={formatSessionData(this.props.events)}
         isLoading={this.props.isLoading}
  
       />

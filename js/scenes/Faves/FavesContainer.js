@@ -12,7 +12,8 @@ class FavesContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: "Favourites"
+      title: "Favourites",
+      tintColor: "black",
     }
   };
 
@@ -26,7 +27,7 @@ class FavesContainer extends Component {
     let events = this.props.events;
 
     events = events.filter(event=>{
-      console.log(faves[event.session_id])
+      // console.log(faves[event.session_id])
       if (faves[event.session_id] === "exists"){
         return true;
       }

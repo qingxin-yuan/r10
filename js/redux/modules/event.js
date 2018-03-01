@@ -23,6 +23,7 @@ export const asyncGetEvents = () => dispatch => {
   fetch("https://r10app-95fea.firebaseio.com/sessions.json")
     .then(res => res.json())
     .then(data => {
+      
       // data = formatDataObject(data);
       dispatch(getEvents(data));
     })

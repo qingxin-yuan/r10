@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import {
   StackNavigation,
   DrawerNavigation,
   DrawerNavigationItem
 } from "@expo/ex-navigation";
-import {Router} from './routes';
+import { Router } from "./routes";
 
 // Treat the DrawerNavigationLayout route like any other route -- you may want to set
 // it as the intiial route for a top-level StackNavigation
@@ -21,8 +21,9 @@ export default class NavigationLayout extends Component {
     return (
       <DrawerNavigation
         id="main"
+        navigatorUID="main"
         initialItem="schedule"
-        drawerWidth={300}
+        drawerWidth={200}
         renderHeader={this._renderHeader}
       >
         <DrawerNavigationItem
@@ -30,15 +31,33 @@ export default class NavigationLayout extends Component {
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle("Schedule", isSelected)}
         >
-          <StackNavigation id="schedule" initialRoute={Router.getRoute("schedule")} />
+          <StackNavigation
+            id="schedule"
+            initialRoute={Router.getRoute("schedule")}
+            navigatorUID="schedule"
+          />
         </DrawerNavigationItem>
-
+        <DrawerNavigationItem
+          id="faves"
+          selectedStyle={styles.selectedItemStyle}
+          renderTitle={isSelected => this._renderTitle("Faves", isSelected)}
+        >
+          <StackNavigation
+            id="faves"
+            initialRoute={Router.getRoute("faves")}
+            navigatorUID="faves"
+          />
+        </DrawerNavigationItem>
         <DrawerNavigationItem
           id="about"
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle("About", isSelected)}
         >
-          <StackNavigation id="about" initialRoute={Router.getRoute("about")} />
+          <StackNavigation
+            id="about"
+            initialRoute={Router.getRoute("about")}
+            navigatorUID="about"
+          />
         </DrawerNavigationItem>
       </DrawerNavigation>
     );

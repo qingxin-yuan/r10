@@ -45,7 +45,7 @@ export default class NavigationLayout extends Component {
       <TabNavigation
         id="main"
         navigatorUID="main"
-        initialTab="about"
+        initialTab="schedule"
         tabBarColor={black}
       >
         <TabItem
