@@ -17,7 +17,8 @@ class AboutContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: "About"
+      title: "About",
+      tintColor: "black"
     }
   };
 

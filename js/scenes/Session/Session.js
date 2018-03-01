@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Platform, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import { goToSpeaker } from "../../navagation/navigationHelpers";
 import {createFave, queryFave} from '../../config/models';
+import {HeartIcon} from '../../components/Icons';
 
 const Session = ({ data, speaker }) => {
   console.log(data);
@@ -13,7 +14,8 @@ const Session = ({ data, speaker }) => {
       
       <Text>{data.location}</Text>
       <TouchableOpacity onPress={()=>createFave(data.session_id)} >
-      <Icon active name="ios-heart" />
+     
+      <Icon active name={HeartIcon} />
       </TouchableOpacity>
       <Text> {data.title}</Text>
       <TouchableOpacity

@@ -17,6 +17,7 @@ class FavesContainer extends Component {
   };
 
   render() {
+    console.log(realm.path);
     const data = queryFave();
     const faves = {};
     data.map((item, key) => faves[item.id] = "exists");
