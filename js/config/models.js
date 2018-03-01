@@ -10,7 +10,6 @@ const FavesSchema = {
 }
 const realm = new Realm({schema: [FavesSchema]});
 
-console.log('realm path: ',realm.path);
 
 export default realm;
 

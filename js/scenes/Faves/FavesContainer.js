@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import Faves from "./Faves";
+import realm, {queryFave} from '../../config/models';
+
 
 export default class FavesContainer extends Component {
   constructor() {
@@ -13,7 +15,11 @@ export default class FavesContainer extends Component {
     }
   }
 
+
+
   render() {
-    return <Faves />;
+    const data = queryFave();
+    // console.log(realm.objects('Faves'));
+    return <Faves data={data}/>;
   }
 }
