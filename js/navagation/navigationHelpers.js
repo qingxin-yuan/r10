@@ -18,3 +18,9 @@ export const goToSpeaker = speakerData => {
   ))
   );
 };
+
+export const exitSpeaker = () => {
+  Store.dispatch(
+    NavigationActions.pop("root")
+  );
+};
