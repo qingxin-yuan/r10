@@ -8,10 +8,10 @@ import {formatSessionData} from '../../redux/modules/helpers';
 
 import { styles } from "./styles";
 
-const Schedule = ({ events, isLoading }) => {
+const Schedule = ({ events, isLoading, currentUID }) => {
   // const data = formatSessionData(events)
   // console.log(events);
-  return (!isLoading && events.length !== 0) ? <EventList data={events}  /> : <Text> loading...</Text>;
+  return (!isLoading && events.length !== 0) ? <EventList data={events}  currentUID={currentUID}/> : <Text> loading...</Text>;
 };
 
 export default Schedule;

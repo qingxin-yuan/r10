@@ -10,7 +10,7 @@ import moment from "moment";
 
 import { goToSession } from "../navagation/navigationHelpers";
 
-const EventList = ({ data }) => {
+const EventList = ({ data, currentUID }) => {
   // constructor(props) {
   //   super(props);
   //   this.state = {
@@ -25,7 +25,7 @@ const EventList = ({ data }) => {
         sections={data}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => goToSession("schedule", item)}
+            onPress={() => goToSession(currentUID, item)}
             activeOpacity={0.7}
           >
             <View>

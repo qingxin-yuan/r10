@@ -8,7 +8,7 @@ import EventList from '../../components/EventList';
 
 import { styles } from "./styles";
 
-const Faves = ({ data }) => <EventList data={data} />
+const Faves = ({ data, currentUID }) => <EventList data={data} currentUID={currentUID}/>
 // return
 
 export default Faves;

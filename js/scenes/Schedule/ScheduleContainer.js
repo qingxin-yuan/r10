@@ -29,7 +29,7 @@ class ScheduleContainer extends Component {
       <Schedule
         events={formatSessionData(this.props.events)}
         isLoading={this.props.isLoading}
- 
+        currentUID={this.props.currentUID}
       />
     );
   }
@@ -37,7 +37,8 @@ class ScheduleContainer extends Component {
 
 const mapStateToProps = state => ({
   isLoading: state.event.isLoading,
-  events: state.event.events
+  events: state.event.events,
+  currentUID: state.navigation.currentNavigatorUID,
 });
 
 export default connect(mapStateToProps)(ScheduleContainer);
