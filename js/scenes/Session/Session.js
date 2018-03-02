@@ -25,7 +25,7 @@ const Session = ({ data, speaker }) => {
           goToSpeaker(speaker)
         }}
       >
-        <Text>{speaker.name}</Text>
+        <Text>{speaker && speaker.name}</Text>
         
         {/* <Text>{speaker.name}</Text> */}
       </TouchableOpacity>

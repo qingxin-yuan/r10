@@ -16,7 +16,7 @@ const Speaker = ({ speakerData }) => {
         <Text style={styles.headingText}>{speakerData.name}</Text>
       </View>
       <View style={styles.body}>
-        <Image source={{ url: speakerData.image }} style={styles.image} />
+        <Image source={{ uri: speakerData.image }} style={styles.image} />
         <Text>{speakerData.bio}</Text>
       </View>
     </View>

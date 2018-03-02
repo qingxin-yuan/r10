@@ -1,4 +1,4 @@
-import {queryFave} from '../../config/models';
+import realm, {queryFave} from '../../config/models';
 
 // const TOGGLE_FAVES = "TOGGLE_FAVES";
 const FETCH_FAVES = "FETCH_FAVES";
@@ -14,6 +14,7 @@ const fetchFaves = faved =>({
 })
 
 export const fetchFavesFromDB = () => dispatch =>{
+  // realm.addListener('change', queryFave)
   const data = queryFave();
   const faves = {};
   data.map((item, key) => faves[item.id] = "exists");

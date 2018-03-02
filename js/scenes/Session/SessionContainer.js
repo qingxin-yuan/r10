@@ -66,6 +66,7 @@ class SessionContainer extends Component {
   }
 
   render() {
+    // realm.addListener('change', this.props.dispatch(fetchFavesFromDB));
     console.log(realm.path);
     console.log(this.state.status);
     // console.log(this.state.data);
