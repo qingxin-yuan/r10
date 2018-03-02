@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Schedule from "./Schedule";
 import { asyncGetEvents } from "../../redux/modules/event";
 import {formatSessionData} from '../../redux/modules/helpers';
+import {fetchFavesFromDB} from '../../redux/modules/faves';
 
 class ScheduleContainer extends Component {
   constructor() {
@@ -21,6 +22,7 @@ class ScheduleContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(asyncGetEvents());
+    this.props.dispatch(fetchFavesFromDB());
   }
 
 
@@ -39,6 +41,7 @@ const mapStateToProps = state => ({
   isLoading: state.event.isLoading,
   events: state.event.events,
   currentUID: state.navigation.currentNavigatorUID,
+  faves: state.faves.faves
 });
 
 export default connect(mapStateToProps)(ScheduleContainer);
