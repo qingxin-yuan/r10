@@ -29,7 +29,9 @@ class SessionContainer extends Component {
 
   updateFaves = () => {
     const sessionId = this.props.route.params.sessionData.session_id;
+    this.props.dispatch(fetchFavesFromDB());
     const faves = this.props.faves;
+    // this.props.dispatch(fetchFavesFromDB());
     if (faves[sessionId] === "exists") {
       deleteFave(sessionId);
       this.setState({ status: "Add to " });
@@ -38,6 +40,7 @@ class SessionContainer extends Component {
       createFave(sessionId);
       this.setState({ status: "Remove from " });
     }
+    this.props.dispatch(fetchFavesFromDB());
   };
 
   componentDidMount() {
