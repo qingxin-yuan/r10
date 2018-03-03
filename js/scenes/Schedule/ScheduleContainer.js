@@ -37,6 +37,7 @@ class ScheduleContainer extends Component {
         events={formatSessionData(this.props.events)}
         isLoading={this.props.isLoading}
         currentUID={this.props.currentUID}
+        faves={this.props.faves}
       />
     );
   }

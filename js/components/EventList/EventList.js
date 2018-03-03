@@ -7,11 +7,14 @@ import {
   View
 } from "react-native";
 import moment from "moment";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import { goToSession } from "../../navagation/navigationHelpers";
-import styles from './styles';
+import styles from "./styles";
+import { HeartIcon } from "../Icons";
+import { colors } from "../../config/styles";
 
-const EventList = ({ data, currentUID }) => {
+const EventList = ({ data, currentUID, faves }) => {
   // constructor(props) {
   //   super(props);
   //   this.state = {
@@ -19,7 +22,8 @@ const EventList = ({ data, currentUID }) => {
   //   };
   // }
   // render() {
-  console.log(data);
+  // console.log(faves[data.session_id]);
+
   return (
     <View>
       <SectionList
@@ -29,14 +33,17 @@ const EventList = ({ data, currentUID }) => {
             onPress={() => goToSession(currentUID, item)}
             activeOpacity={0.7}
           >
-            <View  style={styles.textContainer} >
+            <View style={styles.textContainer}>
               <Text style={styles.textHeading}>{item.title}</Text>
-              <Text style={styles.text}>{item.location}</Text>
+              <View style={styles.heartContainer} >
+                <Text style={styles.text}>{item.location}</Text>
+                {faves[item.session_id] ==="exists" && <Icon active name={HeartIcon} color={colors.red} />}
+              </View>
             </View>
           </TouchableOpacity>
         )}
         renderSectionHeader={({ section }) => (
-          <Text style={styles.time} >
+          <Text style={styles.time}>
             {moment.unix(section.title).format("LT")}
           </Text>
         )}

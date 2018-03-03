@@ -51,7 +51,7 @@ class FavesContainer extends Component {
     events = formatSessionData(events);
 
     // console.log(this.props.currentUID)
-    return <Faves data={events} currentUID={this.props.currentUID}/>;
+    return <Faves data={events} currentUID={this.props.currentUID} faves={faves} />;
   }
 }
 

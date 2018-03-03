@@ -25,6 +25,12 @@ const styles = {
     paddingLeft: 10,
     borderBottomWidth: 1,
     borderBottomColor: colors.lightGrey,
+  },
+  heartContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: "space-between",
+    marginRight: 10,
   }
 }
 
