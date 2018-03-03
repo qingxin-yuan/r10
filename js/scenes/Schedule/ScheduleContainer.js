@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Router } from "react-native";
 import { connect } from "react-redux";
+import LinearGradient from "react-native-linear-gradient";
 
 import Schedule from "./Schedule";
 import { asyncGetEvents } from "../../redux/modules/event";
-import {formatSessionData} from '../../redux/modules/helpers';
-import {fetchFavesFromDB} from '../../redux/modules/faves';
+import { formatSessionData } from "../../redux/modules/helpers";
+import { fetchFavesFromDB } from "../../redux/modules/faves";
+import { typography, colors } from "../../config/styles";
 
 class ScheduleContainer extends Component {
   constructor() {
@@ -16,7 +18,21 @@ class ScheduleContainer extends Component {
   static route = {
     navigationBar: {
       title: "Schedule",
-      tintColor: "green"
+      tintColor: colors.white,
+      titleStyle: {
+        fontFamily: typography.fontMain
+      },
+      renderBackground: () => (
+        <LinearGradient
+          start={{ x: 0.0, y: 1.0 }}
+          end={{ x: 1.0, y: 0.0 }}
+          // locations={[0, 0.5, 0.6]}
+          colors={[colors.red, colors.purple]}
+          // height={1}
+          style={{flex:1}}
+          // style={styles.linearGradient}
+        />
+      )
     }
   };
 
@@ -24,7 +40,6 @@ class ScheduleContainer extends Component {
     this.props.dispatch(asyncGetEvents());
     this.props.dispatch(fetchFavesFromDB());
   }
-
 
   render() {
     return (

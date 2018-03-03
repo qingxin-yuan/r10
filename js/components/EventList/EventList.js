@@ -8,7 +8,8 @@ import {
 } from "react-native";
 import moment from "moment";
 
-import { goToSession } from "../navagation/navigationHelpers";
+import { goToSession } from "../../navagation/navigationHelpers";
+import styles from './styles';
 
 const EventList = ({ data, currentUID }) => {
   // constructor(props) {
@@ -28,14 +29,14 @@ const EventList = ({ data, currentUID }) => {
             onPress={() => goToSession(currentUID, item)}
             activeOpacity={0.7}
           >
-            <View>
-              <Text>{item.title}</Text>
-              <Text>{item.location}</Text>
+            <View  style={styles.textContainer} >
+              <Text style={styles.textHeading}>{item.title}</Text>
+              <Text style={styles.text}>{item.location}</Text>
             </View>
           </TouchableOpacity>
         )}
         renderSectionHeader={({ section }) => (
-          <Text style={{ fontSize: 20, color: "black" }}>
+          <Text style={styles.time} >
             {moment.unix(section.title).format("LT")}
           </Text>
         )}
