@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Button, Text, View } from "react-native";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import { formatDataObject } from "../../redux/modules/helpers";
 import { fetchFavesFromDB } from "../../redux/modules/faves";
-import realm, {deleteFave, createFave} from '../../config/models'; 
+import realm, { deleteFave, createFave } from "../../config/models";
 import Session from "./Session";
 import LinearGradient from "../../components/LinearGradient";
 import { typography, colors } from "../../config/styles";
-
 
 class SessionContainer extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class SessionContainer extends Component {
     this.state = {
       data: {},
       status: "",
-      faved: false,
+      faved: false
     };
     this.updateFaves = this.updateFaves.bind(this);
   }
@@ -28,7 +28,7 @@ class SessionContainer extends Component {
       titleStyle: {
         fontFamily: typography.fontMain
       },
-      renderBackground: LinearGradient,
+      renderBackground: LinearGradient
       // title(params) {
       //   return params.sessionData.title;
       // }
@@ -43,7 +43,6 @@ class SessionContainer extends Component {
     if (faves[sessionId] === "exists") {
       deleteFave(sessionId);
       this.setState({ status: "Add to ", faved: false });
-
     } else {
       createFave(sessionId);
       this.setState({ status: "Remove from ", faved: true });
@@ -95,7 +94,7 @@ class SessionContainer extends Component {
           title={`${this.state.status}Favourites`}
           color="black"
           accessibilityLabel="Learn more about this purple button"
-          style={{backgroundColor: "black"}}
+          style={{ backgroundColor: "black" }}
         />
       </View>
     );
@@ -107,3 +106,9 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(SessionContainer);
+
+SessionContainer.propTypes = {
+  route: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  faves: PropTypes.object.isRequired
+};

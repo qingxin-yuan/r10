@@ -1,8 +1,3 @@
-import {
-  //  formatDataObject, 
-   formatSessionData 
-  } from "./helpers";
-
 // action types
 const GET_EVENTS_LOADING = "GET_EVENTS_LOADING";
 const GET_EVENTS = "GET_EVENTS";

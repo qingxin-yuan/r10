@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import Proptypes from "prop-types";
+import PropTypes from "prop-types";
 
 import { ActivityIndicator, ScrollView, Text, View, Image } from "react-native";
 
@@ -12,3 +12,15 @@ const Faves = ({ data, currentUID, faves }) => <EventList data={data} currentUID
 // return
 
 export default Faves;
+
+Faves.propTypes = {
+  data: PropTypes.array.isRequired,
+  currentUID: PropTypes.string.isRequired,
+  faves: PropTypes.object.isRequired,
+}
+
+Faves.defaultProps = {
+  data: [],
+  currentUID: "",
+  faves: {}
+}

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Router } from "react-native";
 import { connect } from "react-redux";
-import LinearGradient from "../../components/LinearGradient";
+import PropTypes from 'prop-types';
 
+import LinearGradient from "../../components/LinearGradient";
 import Schedule from "./Schedule";
 import { asyncGetEvents } from "../../redux/modules/event";
 import { formatSessionData } from "../../redux/modules/helpers";
@@ -51,3 +52,16 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(ScheduleContainer);
+
+ScheduleContainer.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  events: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  currentUID: PropTypes.string.isRequired,
+  faves: PropTypes.object.isRequired,
+}
+
+ScheduleContainer.defaulProps = {
+  isLoading: false,
+  faves: {}
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 
 // import Proptypes from "prop-types";
 // import { View,  Text } from "react-native";
@@ -44,3 +45,14 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(AboutContainer);
+
+AboutContainer.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  COC: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+}
+
+AboutContainer.defaultProps = {
+  COC: [],
+  // isLoading: 
+}

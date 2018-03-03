@@ -1,12 +1,8 @@
-import realm, {queryFave} from '../../config/models';
+import {queryFave} from '../../config/models';
 
 // const TOGGLE_FAVES = "TOGGLE_FAVES";
 const FETCH_FAVES = "FETCH_FAVES";
 
-
-// const toggleFaves = () =>({
-//   type: TOGGLE_FAVES,
-// })
 
 const fetchFaves = faved =>({
   type: FETCH_FAVES,

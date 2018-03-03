@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Image, Platform, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import moment from "moment";
+import PropTypes from 'prop-types';
 
 import { goToSpeaker } from "../../navagation/navigationHelpers";
 import { createFave, queryFave } from "../../config/models";
@@ -45,3 +46,9 @@ const Session = ({ data, speaker, faved }) => {
 };
 
 export default Session;
+
+Session.propTypes = {
+  data: PropTypes.object.isRequired,
+  speaker: PropTypes.object.isRequired,
+  faved: PropTypes.bool.isRequired,
+}
