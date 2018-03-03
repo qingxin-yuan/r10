@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Text } from "react-native";
 
 import EventList from "../../components/EventList";
+import Loader from '../../components/Loader/';
 // import { formatSessionData } from "../../redux/modules/helpers";
 
 // import { styles } from "./styles";
@@ -14,7 +15,7 @@ const Schedule = ({ events, isLoading, currentUID, faves }) => {
   return !isLoading && events.length !== 0 ? (
     <EventList data={events} currentUID={currentUID} faves={faves} />
   ) : (
-    <Text> loading...</Text>
+    Loader()
   );
 };
 

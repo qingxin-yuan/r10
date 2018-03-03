@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { ActivityIndicator, ScrollView, Text, View, Image } from "react-native";
 
 import logo from '../../assets/images/r10_logo.png';
+import Loader from '../../components/Loader';
 import { styles } from "./styles";
 
 const About = ({ data, isLoading }) => {
@@ -34,9 +35,7 @@ const About = ({ data, isLoading }) => {
       </ScrollView>
     </View>
   ) : (
-    <View style={styles.loader}>
-      <ActivityIndicator size="large" color="lightgreen" />
-    </View>
+    Loader()
   );
 };
 

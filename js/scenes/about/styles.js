@@ -4,12 +4,6 @@ import { StyleSheet } from "react-native";
 import {typography, colors} from '../../config/styles';
 
 export const styles = StyleSheet.create({
-  // margin: 10
-  loader:{
-    flex:1,
-    justifyContent: "center",
-    alignItems: 'center',
-  },
   paragraph: {
     fontSize: 15,
     fontFamily: typography.fontMainLight

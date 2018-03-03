@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, View } from "react-native";
+import { Button, ScrollView } from "react-native";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -76,13 +76,9 @@ class SessionContainer extends Component {
   }
 
   render() {
-    // realm.addListener('change', this.props.dispatch(fetchFavesFromDB));
-    // console.log(realm.path);
-    // console.log(this.state.status);
-    // console.log(this.state.data);
-    // console.log(this.props.route.params.sessionData.speaker);
+  
     return (
-      <View>
+      <ScrollView>
         {/* <Text> {this.props.route.params.sessionData} </Text> */}
         <Session
           data={this.props.route.params.sessionData}
@@ -96,7 +92,7 @@ class SessionContainer extends Component {
           accessibilityLabel="Learn more about this purple button"
           style={{ backgroundColor: "black" }}
         />
-      </View>
+      </ScrollView>
     );
   }
 }

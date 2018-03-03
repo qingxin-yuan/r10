@@ -22,7 +22,7 @@ export const styles = {
     fontFamily: typography.fontMain,
     fontSize: 25,
     marginVertical: 10,
-    marginLeft: -8,
+    marginHorizontal: 0,
   },
   description: {
     fontFamily: typography.fontMainLight,

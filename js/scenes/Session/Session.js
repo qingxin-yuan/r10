@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import moment from "moment";
 import PropTypes from 'prop-types';
@@ -11,8 +11,7 @@ import { colors } from "../../config/styles";
 import { styles } from "./styles";
 
 const Session = ({ data, speaker, faved }) => {
-  // console.log(data);
-  // render(){
+
   return (
     <View style={styles.body}>
       <View style={styles.locationContainer}>
@@ -22,7 +21,7 @@ const Session = ({ data, speaker, faved }) => {
         {faved && <Icon active name={HeartIcon} color={colors.red} />}
       </View>
       {/* </TouchableOpacity> */}
-      <Text style={styles.title}> {data.title}</Text>
+      <Text style={styles.title}>{data.title}</Text>
       <Text style={styles.time}>
         {moment.unix(data.start_time).format("LT")}
       </Text>
@@ -42,7 +41,6 @@ const Session = ({ data, speaker, faved }) => {
       </TouchableOpacity>
     </View>
   );
-  // }
 };
 
 export default Session;
