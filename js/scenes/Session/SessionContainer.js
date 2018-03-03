@@ -93,8 +93,9 @@ class SessionContainer extends Component {
         <Button
           onPress={() => this.updateFaves()}
           title={`${this.state.status}Favourites`}
-          color="#841584"
+          color="black"
           accessibilityLabel="Learn more about this purple button"
+          style={{backgroundColor: "black"}}
         />
       </View>
     );

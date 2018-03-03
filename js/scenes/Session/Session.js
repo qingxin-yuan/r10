@@ -1,30 +1,41 @@
 import React, { Component } from "react";
-import { Platform, Text, TouchableOpacity, View } from "react-native";
+import { Image, Platform, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import moment from "moment";
 
 import { goToSpeaker } from "../../navagation/navigationHelpers";
 import { createFave, queryFave } from "../../config/models";
 import { HeartIcon } from "../../components/Icons";
-import {colors} from '../../config/styles';
+import { colors } from "../../config/styles";
+import { styles } from "./styles";
 
 const Session = ({ data, speaker, faved }) => {
   console.log(data);
   // render(){
   return (
-    <View>
-      <Text>{data.location}</Text>
-      {/* <TouchableOpacity onPress={()=>createFave(data.session_id)} > */}
+    <View style={styles.body}>
+      <View style={styles.locationContainer}>
+        <Text style={styles.location}>{data.location}</Text>
+        {/* <TouchableOpacity onPress={()=>createFave(data.session_id)} > */}
 
-      {faved && <Icon active name={HeartIcon} color={colors.red}/>}
+        {faved && <Icon active name={HeartIcon} color={colors.red} />}
+      </View>
       {/* </TouchableOpacity> */}
-      <Text> {data.title}</Text>
+      <Text style={styles.title}> {data.title}</Text>
+      <Text style={styles.time}>
+        {moment.unix(data.start_time).format("LT")}
+      </Text>
+      <Text style={styles.description}>{data.description}</Text>
+      <Text style={styles.presentedBy}>Presented by: </Text>
       <TouchableOpacity
         activeOpacity={0.4}
         onPress={() => {
           goToSpeaker(speaker);
         }}
+        style={styles.presenter}
       >
-        <Text>{speaker && speaker.name}</Text>
+        <Image source={{uri:speaker.image}} style={styles.image}/>
+        <Text style={styles.presenterName} >{speaker && speaker.name}</Text>
 
         {/* <Text>{speaker.name}</Text> */}
       </TouchableOpacity>
