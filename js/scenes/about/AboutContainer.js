@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 // import { View,  Text } from "react-native";
 
 import About from "./About";
+import {colors, typography} from '../../config/styles';
+import LinearGradient from '../../components/LinearGradient';
 
 import { getCodeOfConduct } from "../../redux/modules/about";
 
@@ -18,7 +20,12 @@ class AboutContainer extends Component {
   static route = {
     navigationBar: {
       title: "About",
-      tintColor: "black"
+      titleStyle: {
+        fontFamily: typography.fontMain,
+      },
+      tintColor: colors.white,
+      renderBackground: LinearGradient,
+
     }
   };
 

@@ -6,6 +6,8 @@ import { formatDataObject } from "../../redux/modules/helpers";
 import { fetchFavesFromDB } from "../../redux/modules/faves";
 import realm, {deleteFave, createFave} from '../../config/models'; 
 import Session from "./Session";
+import LinearGradient from "../../components/LinearGradient";
+import { typography, colors } from "../../config/styles";
 
 
 class SessionContainer extends Component {
@@ -20,7 +22,12 @@ class SessionContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: "Session"
+      title: "Session",
+      tintColor: colors.white,
+      titleStyle: {
+        fontFamily: typography.fontMain
+      },
+      renderBackground: LinearGradient,
       // title(params) {
       //   return params.sessionData.title;
       // }

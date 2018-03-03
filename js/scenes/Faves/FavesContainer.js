@@ -5,6 +5,8 @@ import Faves from "./Faves";
 import realm, { queryFave } from "../../config/models";
 import {formatSessionData} from '../../redux/modules/helpers';
 import {fetchFavesFromDB} from '../../redux/modules/faves';
+import {colors, typography} from '../../config/styles';
+import LinearGradient from '../../components/LinearGradient';
 
 class FavesContainer extends Component {
   constructor() {
@@ -14,7 +16,11 @@ class FavesContainer extends Component {
   static route = {
     navigationBar: {
       title: "Favourites",
-      tintColor: "black",
+      tintColor: colors.white,
+      titleStyle: {
+        fontFamily: typography.fontMain
+      },
+      renderBackground: LinearGradient,
     }
   };
 
