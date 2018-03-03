@@ -15,7 +15,8 @@ class SessionContainer extends Component {
     super(props);
     this.state = {
       data: {},
-      status: ""
+      status: "",
+      faved: false,
     };
     this.updateFaves = this.updateFaves.bind(this);
   }
@@ -41,11 +42,11 @@ class SessionContainer extends Component {
     // this.props.dispatch(fetchFavesFromDB());
     if (faves[sessionId] === "exists") {
       deleteFave(sessionId);
-      this.setState({ status: "Add to " });
+      this.setState({ status: "Add to ", faved: false });
 
     } else {
       createFave(sessionId);
-      this.setState({ status: "Remove from " });
+      this.setState({ status: "Remove from ", faved: true });
     }
     this.props.dispatch(fetchFavesFromDB());
   };
@@ -64,9 +65,9 @@ class SessionContainer extends Component {
         const sessionId = this.props.route.params.sessionData.session_id;
         const faves = this.props.faves;
         if (faves[sessionId] === "exists") {
-          this.setState({ status: "Remove from " });
+          this.setState({ status: "Remove from ", faved: true });
         } else {
-          this.setState({ status: "Add to " });
+          this.setState({ status: "Add to ", faved: false });
         }
         // this.updateFaves();
         // console.log(speaker);
@@ -87,6 +88,7 @@ class SessionContainer extends Component {
         <Session
           data={this.props.route.params.sessionData}
           speaker={this.state.data}
+          faved={this.state.faved}
         />
         <Button
           onPress={() => this.updateFaves()}
