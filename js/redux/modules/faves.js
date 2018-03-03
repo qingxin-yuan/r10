@@ -1,21 +1,20 @@
-import {queryFave} from '../../config/models';
+import { queryFave } from "../../config/models";
 
 // const TOGGLE_FAVES = "TOGGLE_FAVES";
 const FETCH_FAVES = "FETCH_FAVES";
 
-
-const fetchFaves = faved =>({
+const fetchFaves = faved => ({
   type: FETCH_FAVES,
   payload: faved
-})
+});
 
-export const fetchFavesFromDB = () => dispatch =>{
+export const fetchFavesFromDB = () => dispatch => {
   // realm.addListener('change', queryFave)
   const data = queryFave();
   const faves = {};
-  data.map((item, key) => faves[item.id] = "exists");
+  data.map(item => (faves[item.id] = "exists"));
   dispatch(fetchFaves(faves));
-}
+};
 
 export default (
   state = {
@@ -23,14 +22,14 @@ export default (
   },
   action
 ) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_FAVES: {
-      return{
+      return {
         ...state,
         faves: action.payload
-      }
+      };
     }
     default:
       return state;
   }
-}
+};

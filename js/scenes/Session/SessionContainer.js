@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, View } from "react-native";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { formatDataObject } from "../../redux/modules/helpers";
 import { fetchFavesFromDB } from "../../redux/modules/faves";
-import realm, { deleteFave, createFave } from "../../config/models";
+import { deleteFave, createFave } from "../../config/models";
 import Session from "./Session";
 import LinearGradient from "../../components/LinearGradient";
 import { typography, colors } from "../../config/styles";
@@ -77,8 +77,8 @@ class SessionContainer extends Component {
 
   render() {
     // realm.addListener('change', this.props.dispatch(fetchFavesFromDB));
-    console.log(realm.path);
-    console.log(this.state.status);
+    // console.log(realm.path);
+    // console.log(this.state.status);
     // console.log(this.state.data);
     // console.log(this.props.route.params.sessionData.speaker);
     return (

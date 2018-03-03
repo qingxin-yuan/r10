@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-import { ActivityIndicator, ScrollView, Text, View, Image } from "react-native";
+import { Text } from "react-native";
 
 import EventList from "../../components/EventList";
-import { formatSessionData } from "../../redux/modules/helpers";
+// import { formatSessionData } from "../../redux/modules/helpers";
 
-import { styles } from "./styles";
+// import { styles } from "./styles";
 
 const Schedule = ({ events, isLoading, currentUID, faves }) => {
   // const data = formatSessionData(events)

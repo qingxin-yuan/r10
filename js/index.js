@@ -13,7 +13,6 @@ import {
 } from "@expo/ex-navigation";
 import { Provider } from "react-redux";
 
-import About from "./scenes/About";
 import { Router } from "./navagation/routes";
 import Store from "./redux/store";
 

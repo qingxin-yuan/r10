@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Faves from "./Faves";
-import realm, { queryFave } from "../../config/models";
+import realm from "../../config/models";
 import { formatSessionData } from "../../redux/modules/helpers";
 import { fetchFavesFromDB } from "../../redux/modules/faves";
 import { colors, typography } from "../../config/styles";
@@ -46,7 +46,7 @@ class FavesContainer extends Component {
       }
     });
 
-    console.log(events);
+    // console.log(events);
     events = formatSessionData(events);
 
     // console.log(this.props.currentUID)

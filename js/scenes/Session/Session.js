@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { Image, Platform, Text, TouchableOpacity, View } from "react-native";
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import moment from "moment";
 import PropTypes from 'prop-types';
 
 import { goToSpeaker } from "../../navagation/navigationHelpers";
-import { createFave, queryFave } from "../../config/models";
+// import { createFave, queryFave } from "../../config/models";
 import { HeartIcon } from "../../components/Icons";
 import { colors } from "../../config/styles";
 import { styles } from "./styles";
 
 const Session = ({ data, speaker, faved }) => {
-  console.log(data);
+  // console.log(data);
   // render(){
   return (
     <View style={styles.body}>

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
 import { ActivityIndicator, ScrollView, Text, View, Image } from "react-native";
 
+import logo from '../../assets/images/r10_logo.png';
 import { styles } from "./styles";
 
 const About = ({ data, isLoading }) => {
@@ -10,7 +10,7 @@ const About = ({ data, isLoading }) => {
     <View>
       <ScrollView>
         <View style={styles.image}>
-          <Image source={require(`../../assets/images/r10_logo.png`)} />
+          <Image source={logo} />
         </View>
         <View style={styles.textBody}>
           <Text style={styles.paragraph}>
@@ -18,7 +18,9 @@ const About = ({ data, isLoading }) => {
             feelings in app dev.
           </Text>
           <Text style={styles.heading}>Date &amp; Venue</Text>
-          <Text style={styles.paragraph} >The R10 takes place at RED Academy on March 15, 2018. </Text>
+          <Text style={styles.paragraph}>
+            The R10 takes place at RED Academy on March 15, 2018.{" "}
+          </Text>
           <Text style={styles.heading}>Code of Conduct</Text>
           {data.map((item, index) => (
             <View key={index}>
@@ -40,6 +42,7 @@ const About = ({ data, isLoading }) => {
 
 export default About;
 
-About.proptypes = {
-  data: PropTypes.array.isRequired
+About.propTypes = {
+  data: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
