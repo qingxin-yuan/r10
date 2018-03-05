@@ -7,7 +7,7 @@ An example conference schdule app using React Native, both IOS & Android support
 2. To run IOS, run `> react-native run-ios`  
 To save computing power, run on iPhone SE model using `> react-native run-ios --simulator "iPhone SE"`
 
-3. To run Android, make sure to install Android Studio and follow the config on [a link](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)  
+3. To run Android, make sure to install Android Studio and follow the config on [React Native Docs](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)  
 After the config, start the packager and then run from Android Studio using the Run button.
 
 ## Features
