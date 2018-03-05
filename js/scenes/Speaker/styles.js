@@ -8,25 +8,47 @@ export const styles = {
   },
   header:{
     flexDirection: 'row',
+    marginHorizontal: 10,
 
   },
   headingText: {
     color: colors.white,
-    // position: "fixed",
+    fontFamily: typography.fontMain,
+    fontSize: 20,
+    textAlign: "center",
     top: 10,
     left: 40,
 
   },
   body: {
     flex: 1,
+    alignItems: 'center',
     marginTop: 50,
+    // marginBottom: 20,
+    paddingBottom: 20,
     marginHorizontal: 10,
     borderRadius: 10,
     backgroundColor: colors.white,
+   
   },
   image:{
-    borderRadius: 50,
-    height: 100, 
-    width: 100
+    borderRadius: 60,
+    height: 120, 
+    width: 120,
+    marginVertical: 10,
+  },
+  speaker:{
+    fontSize: 25,
+    fontFamily: typography.fontMain,
+    paddingHorizontal: 20,
+    marginVertical: 15,
+    color: colors.black
+  },
+  description: {
+    fontFamily: typography.fontMainLight,
+    fontSize: 18,
+    paddingHorizontal: 20,
+    color: colors.black,
+    lineHeight: 30,
   }
 }

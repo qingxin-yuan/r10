@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, ScrollView } from "react-native";
+import { Button, ScrollView, TouchableOpacity, View } from "react-native";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -7,6 +7,7 @@ import { formatDataObject } from "../../redux/modules/helpers";
 import { fetchFavesFromDB } from "../../redux/modules/faves";
 import { deleteFave, createFave } from "../../config/models";
 import Session from "./Session";
+import GradientButton from "../../components/GradientButton";
 import LinearGradient from "../../components/LinearGradient";
 import { typography, colors } from "../../config/styles";
 
@@ -76,7 +77,6 @@ class SessionContainer extends Component {
   }
 
   render() {
-  
     return (
       <ScrollView>
         {/* <Text> {this.props.route.params.sessionData} </Text> */}
@@ -85,13 +85,14 @@ class SessionContainer extends Component {
           speaker={this.state.data}
           faved={this.state.faved}
         />
-        <Button
-          onPress={() => this.updateFaves()}
-          title={`${this.state.status}Favourites`}
-          color="black"
-          accessibilityLabel="Learn more about this purple button"
-          style={{ backgroundColor: "black" }}
-        />
+        <View style={{justifyContent: "center", alignItems: "center"}}>
+          <TouchableOpacity
+            onPress={() => this.updateFaves()}
+            style={{ width: 250 }}
+          >
+            <GradientButton text={`${this.state.status} to Favourites`} />
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     );
   }
