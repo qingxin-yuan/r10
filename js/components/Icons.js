@@ -7,3 +7,13 @@ export const HeartIcon =
     ios: "ios-heart",
     android: "md-heart"
   });
+
+export const PlusIcon = Platform.select({
+  ios: "ios-add",
+  android: 'md-add',
+})
+
+export const MinusIcon  = Platform.select({
+  ios:"ios-remove",
+  android: "md-remove",
+})

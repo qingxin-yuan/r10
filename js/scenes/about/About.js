@@ -1,12 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ActivityIndicator, ScrollView, Text, View, Image } from "react-native";
+import {
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  LayoutAnimation
+} from "react-native";
 
-import logo from '../../assets/images/r10_logo.png';
-import Loader from '../../components/Loader';
+import logo from "../../assets/images/r10_logo.png";
+import Loader from "../../components/Loader";
+import Accordion from '../../components/Accordion';
 import { styles } from "./styles";
 
 const About = ({ data, isLoading }) => {
+  let height = "auto";
   return !isLoading ? (
     <View>
       <ScrollView>
@@ -20,14 +29,15 @@ const About = ({ data, isLoading }) => {
           </Text>
           <Text style={styles.heading}>Date &amp; Venue</Text>
           <Text style={styles.paragraph}>
-            The R10 takes place at RED Academy on March 15, 2018.{" "}
+            The R10 takes place at RED Academy on March 15, 2018.
           </Text>
           <Text style={styles.heading}>Code of Conduct</Text>
           {data.map((item, index) => (
-            <View key={index}>
-              <Text style={[styles.title, styles.paragraph]}>{item.title}</Text>
-              <Text style={styles.paragraph}>{item.description}</Text>
-            </View>
+            <Accordion 
+            key={index}
+            title={item.title}
+            description={item.description}
+            />
           ))}
         </View>
 
@@ -43,5 +53,5 @@ export default About;
 
 About.propTypes = {
   data: PropTypes.array.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };

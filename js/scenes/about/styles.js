@@ -6,7 +6,8 @@ import {typography, colors} from '../../config/styles';
 export const styles = StyleSheet.create({
   paragraph: {
     fontSize: 15,
-    fontFamily: typography.fontMainLight
+    fontFamily: typography.fontMainLight,
+    height: 0
   },
   heading:{
     fontSize: 18,
@@ -19,12 +20,14 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: colors.lightGrey,
+    
   },
   title: {
     color: colors.purple,
     fontWeight: "bold",
     fontFamily: typography.fontMain,
     marginVertical: 10,
+    fontSize: 15,
   },
   image: {
     marginTop: 30,
