@@ -5,7 +5,10 @@ import {
   DrawerNavigation,
   DrawerNavigationItem
 } from "@expo/ex-navigation";
+import Icon from "react-native-vector-icons/Ionicons";
+
 import { Router } from "./routes";
+import {colors, typography} from '../config/styles';
 
 // Treat the DrawerNavigationLayout route like any other route -- you may want to set
 // it as the intiial route for a top-level StackNavigation
@@ -30,6 +33,7 @@ export default class NavigationLayout extends Component {
           id="schedule"
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle("Schedule", isSelected)}
+          renderIcon={isSelected => this.renderIcon(isSelected, "md-calendar")}
         >
           <StackNavigation
             id="schedule"
@@ -41,6 +45,7 @@ export default class NavigationLayout extends Component {
           id="faves"
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle("Faves", isSelected)}
+          renderIcon={isSelected => this.renderIcon(isSelected, "md-heart")}
         >
           <StackNavigation
             id="faves"
@@ -52,6 +57,7 @@ export default class NavigationLayout extends Component {
           id="about"
           selectedStyle={styles.selectedItemStyle}
           renderTitle={isSelected => this._renderTitle("About", isSelected)}
+          renderIcon={isSelected => this.renderIcon(isSelected, "md-cafe")}
         >
           <StackNavigation
             id="about"
@@ -76,22 +82,33 @@ export default class NavigationLayout extends Component {
       </Text>
     );
   }
+  renderIcon = (isSelected, iconName) => (
+    <Icon
+      active
+      name={iconName}
+      size={20}
+      color={isSelected ? colors.white : colors.mediumGrey}
+    />
+  );
 }
 
 const styles = StyleSheet.create({
   header: {
-    height: 20
+    height: 20,
+    color: colors.black,
   },
 
   selectedItemStyle: {
-    backgroundColor: "blue"
+    backgroundColor: colors.mediumGrey
   },
 
   titleText: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    paddingLeft: 10,
+    fontFamily: typography.fontMain,
   },
 
   selectedTitleText: {
-    color: "white"
+    color: colors.white
   }
 });
