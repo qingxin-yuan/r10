@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { LayoutAnimation, View, Text, TouchableOpacity } from "react-native";
+import {
+  Animated,
+  Easing,
+  LayoutAnimation,
+  View,
+  Text,
+  TouchableOpacity
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import { PlusIcon, MinusIcon } from "../Icons";
@@ -9,7 +16,8 @@ class Accordion extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      rotate: new Animated.Value(0)
     };
   }
   render() {
@@ -19,21 +27,42 @@ class Accordion extends Component {
         <TouchableOpacity
           onPress={() => {
             LayoutAnimation.easeInEaseOut();
-            this.state.open
-              ? this.setState({ open: false })
-              : this.setState({ open: true });
+
+            Animated.timing(this.state.rotate, {
+              toValue: 1,
+              duration: 250,
+              easing: Easing.elastic(0.2)
+            }).start(() => {
+              this.setState({ rotate: new Animated.Value(0) });
+              this.state.open
+                ? this.setState({ open: false })
+                : this.setState({ open: true });
+            });
           }}
-          style={{flexDirection: "row"}}
+          style={{ flexDirection: "row" }}
         >
-          <Text style={[styles.title]}>
-            {
-              <Icon
-                active
-                name={this.state.open ? MinusIcon : PlusIcon}
-                size={20}
-              />
-            }
-          </Text>
+          <Animated.View
+            style={{
+              transform: [
+                {
+                  rotate: this.state.rotate.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ["0deg", "-360deg"]
+                  })
+                }
+              ]
+            }}
+          >
+            <Text style={[styles.title]}>
+              {
+                <Icon
+                  active
+                  name={this.state.open ? MinusIcon : PlusIcon}
+                  size={20}
+                />
+              }
+            </Text>
+          </Animated.View>
           <Text style={[styles.title]}>{title}</Text>
         </TouchableOpacity>
         <Text
