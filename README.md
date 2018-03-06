@@ -15,6 +15,7 @@ After the config, start the packager and then run from Android Studio using the 
 2. Use Redux for global states storage
 3. Using Realm as database
 4. Use react-native-linear-gradient for gradient styling
+5. Icon animation using LayoutAnimation & Animated RN components
 
 ## Some Gotchas
 1. Add additional stackNavigation can selectively display tabBar, to satisfy various design needs
@@ -24,5 +25,4 @@ After the config, start the packager and then run from Android Studio using the 
 **Qingxin Yuan**
 
 ## Future Directions
-1. Add animation onto About scene
-2. Add map integration
+1. Add map integration

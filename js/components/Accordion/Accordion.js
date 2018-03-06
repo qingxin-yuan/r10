@@ -30,7 +30,7 @@ class Accordion extends Component {
 
             Animated.timing(this.state.rotate, {
               toValue: 1,
-              duration: 250,
+              duration: 200,
               easing: Easing.elastic(0.2)
             }).start(() => {
               this.setState({ rotate: new Animated.Value(0) });
