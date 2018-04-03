@@ -1,7 +1,7 @@
 # R10
 An example conference schdule app using React Native, both IOS & Android supported.
 
-![Alt Text](./r10.gif "app demo gif") 
+![Alt Text](./r10_resized.gif "app demo gif") 
 ## Installation
 1. Download the project, run `> npm install`
 
