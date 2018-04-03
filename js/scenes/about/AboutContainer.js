@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 
-// import Proptypes from "prop-types";
-// import { View,  Text } from "react-native";
-
 import About from "./About";
 import {colors, typography} from '../../config/styles';
 import LinearGradient from '../../components/LinearGradient';
@@ -13,10 +10,6 @@ import { getCodeOfConduct } from "../../redux/modules/about";
 
 
 class AboutContainer extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = { data: [] };
-  // }
 
   static route = {
     navigationBar: {
@@ -54,5 +47,4 @@ AboutContainer.propTypes = {
 
 AboutContainer.defaultProps = {
   COC: [],
-  // isLoading: 
 }

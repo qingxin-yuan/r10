@@ -1,5 +1,7 @@
+// eslint-disable-next-line
 import React from "react";
 import { Platform } from "react-native";
+// eslint-disable-next-line
 import Icon from "react-native-vector-icons/Ionicons";
 
 export const HeartIcon = 

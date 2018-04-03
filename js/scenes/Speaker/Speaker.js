@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   Image,
   Text,
   ScrollView,
@@ -29,7 +28,10 @@ const Speaker = ({ speakerData }) => {
         <Image source={{ uri: speakerData.image }} style={styles.image} />
         <Text style={styles.speaker}>{speakerData.name}</Text>
         <Text style={styles.description}>{speakerData.bio}</Text>
-        <TouchableOpacity onPress={() => Linking.openURL(speakerData.url)} style={{}} >
+        <TouchableOpacity
+          onPress={() => Linking.openURL(speakerData.url)}
+          style={styles.buttonWrapper}
+        >
           <GradientButton text="Read More on Wikipedia" />
         </TouchableOpacity>
       </View>

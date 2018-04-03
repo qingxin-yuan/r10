@@ -1,24 +1,29 @@
 import React, { Component } from "react";
 import {
   Animated,
-  Easing,
   LayoutAnimation,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform,
+  UIManager
 } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import PropTypes from "prop-types";
 
-import { PlusIcon, MinusIcon } from "../Icons";
 import { styles } from "./styles";
 
+
 class Accordion extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       open: false,
       rotate: new Animated.Value(0)
     };
+    if (Platform.OS === "android") {
+      UIManager.setLayoutAnimationEnabledExperimental &&
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
   }
   render() {
     const { title, description } = this.props;
@@ -28,41 +33,49 @@ class Accordion extends Component {
           onPress={() => {
             LayoutAnimation.easeInEaseOut();
 
-            Animated.timing(this.state.rotate, {
-              toValue: 1,
-              duration: 200,
-              easing: Easing.elastic(0.2)
-            }).start(() => {
-              this.setState({ rotate: new Animated.Value(0) });
-              this.state.open
-                ? this.setState({ open: false })
-                : this.setState({ open: true });
-            });
+            this.state.open
+              ? Animated.timing(this.state.rotate, {
+                  toValue: 0,
+                  duration: 300
+                }).start(() => this.setState({ open: !this.state.open }))
+              : Animated.timing(this.state.rotate, {
+                  toValue: 1,
+                  duration: 300
+                }).start(() => this.setState({ open: !this.state.open }));
           }}
           style={{ flexDirection: "row" }}
         >
           <Animated.View
-            style={{
-              transform: [
-                {
-                  rotate: this.state.rotate.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: ["0deg", "-360deg"]
-                  })
-                }
-              ]
-            }}
-          >
-            <Text style={[styles.title]}>
+            style={[
               {
-                <Icon
-                  active
-                  name={this.state.open ? MinusIcon : PlusIcon}
-                  size={20}
-                />
-              }
-            </Text>
-          </Animated.View>
+                transform: [
+                  {
+                    rotate: this.state.rotate.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ["0deg", "360deg"]
+                    })
+                  }
+                ]
+              },
+              styles.horizontalBar
+            ]}
+          />
+
+          <Animated.View
+            style={[
+              {
+                transform: [
+                  {
+                    rotate: this.state.rotate.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ["0deg", "270deg"]
+                    })
+                  }
+                ]
+              },
+              styles.verticalBar
+            ]}
+          />
           <Text style={[styles.title]}>{title}</Text>
         </TouchableOpacity>
         <Text
@@ -76,3 +89,8 @@ class Accordion extends Component {
 }
 
 export default Accordion;
+
+Accordion.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};

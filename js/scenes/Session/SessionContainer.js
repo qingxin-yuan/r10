@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, ScrollView, TouchableOpacity, View } from "react-native";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -30,9 +30,6 @@ class SessionContainer extends Component {
         fontFamily: typography.fontMain
       },
       renderBackground: LinearGradient
-      // title(params) {
-      //   return params.sessionData.title;
-      // }
     }
   };
 
@@ -40,7 +37,7 @@ class SessionContainer extends Component {
     const sessionId = this.props.route.params.sessionData.session_id;
     this.props.dispatch(fetchFavesFromDB());
     const faves = this.props.faves;
-    // this.props.dispatch(fetchFavesFromDB());
+
     if (faves[sessionId] === "exists") {
       deleteFave(sessionId);
       this.setState({ status: "Add to ", faved: false });
@@ -48,6 +45,7 @@ class SessionContainer extends Component {
       createFave(sessionId);
       this.setState({ status: "Remove from ", faved: true });
     }
+
     this.props.dispatch(fetchFavesFromDB());
   };
 
@@ -59,7 +57,6 @@ class SessionContainer extends Component {
     )
       .then(res => res.json())
       .then(data => {
-        // console.log(data);
         data = formatDataObject(data);
         this.props.dispatch(fetchFavesFromDB());
         const sessionId = this.props.route.params.sessionData.session_id;
@@ -69,17 +66,15 @@ class SessionContainer extends Component {
         } else {
           this.setState({ status: "Add to ", faved: false });
         }
-        // this.updateFaves();
-        // console.log(speaker);
         this.setState({ data });
       })
+      // eslint-disable-next-line
       .catch(err => console.log(err));
   }
 
   render() {
     return (
       <ScrollView>
-        {/* <Text> {this.props.route.params.sessionData} </Text> */}
         <Session
           data={this.props.route.params.sessionData}
           speaker={this.state.data}

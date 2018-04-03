@@ -6,6 +6,9 @@ export const styles = {
     backgroundColor: colors.black,
     paddingVertical: 25,
   },
+  buttonWrapper: {
+    height: 40
+  },
   header:{
     flexDirection: 'row',
     marginHorizontal: 10,
@@ -23,13 +26,12 @@ export const styles = {
   body: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 50,
-    // marginBottom: 20,
-    paddingBottom: 20,
+    marginTop: 20,
+    marginBottom: 10,
+    paddingBottom: 30,
     marginHorizontal: 10,
     borderRadius: 10,
     backgroundColor: colors.white,
-   
   },
   image:{
     borderRadius: 60,

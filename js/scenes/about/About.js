@@ -3,10 +3,8 @@ import PropTypes from "prop-types";
 import {
   ScrollView,
   Text,
-  TouchableOpacity,
   View,
   Image,
-  LayoutAnimation
 } from "react-native";
 
 import logo from "../../assets/images/r10_logo.png";
@@ -15,7 +13,7 @@ import Accordion from '../../components/Accordion';
 import { styles } from "./styles";
 
 const About = ({ data, isLoading }) => {
-  let height = "auto";
+  // let height = "auto";
   return !isLoading ? (
     <View>
       <ScrollView>

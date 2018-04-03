@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
   paragraph: {
     fontSize: 15,
     fontFamily: typography.fontMainLight,
-    height: 0
   },
   heading:{
     fontSize: 18,
