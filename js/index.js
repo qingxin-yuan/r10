@@ -16,7 +16,6 @@ import { Provider } from "react-redux";
 import { Router } from "./navagation/routes";
 import Store from "./redux/store";
 
-
 const navigationContext = new NavigationContext({
   router: Router,
   store: Store
@@ -27,11 +26,10 @@ export default class App extends Component {
     return (
       <Provider store={Store}>
         <NavigationProvider context={navigationContext}>
-          <StackNavigation 
-          id="root"
-          navigatorUID="root"
-          initialRoute={Router.getRoute("layout")} 
-          // style={{backgroundColor: "black"}} 
+          <StackNavigation
+            id="root"
+            navigatorUID="root"
+            initialRoute={Router.getRoute("layout")}
           />
         </NavigationProvider>
       </Provider>

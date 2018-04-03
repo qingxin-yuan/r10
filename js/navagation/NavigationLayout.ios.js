@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Text } from "react-native";
+import { Text } from "react-native";
 import {
   StackNavigation,
   TabNavigation,
@@ -14,10 +14,6 @@ import { colors, typography } from "../config/styles";
 const { black, mediumGrey, white } = colors;
 
 export default class NavigationLayout extends Component {
-  // constructor() {
-  //   super();
-  // }
-
   renderTitleColor = (isSelected, title) => {
     return (
       <Text

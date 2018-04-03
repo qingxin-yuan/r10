@@ -12,18 +12,23 @@ To save computing power, run on iPhone SE model using `> react-native run-ios --
 After the config, start the packager and then run from Android Studio using the Run button.
 
 ## Features
-1. Using expo-navigation for navigation stack integration
-2. Use Redux for global states storage
-3. Using Realm as database
-4. Use react-native-linear-gradient for gradient styling
-5. Icon animation using LayoutAnimation & Animated RN components
+* Expo-navigation for navigation stack integration
+* Redux for global state management
+* Realm as database
+* Using react-native-linear-gradient for gradient styling
+* Icon animation using LayoutAnimation & Animated RN components
 
 ## Some Gotchas
-1. Add additional stackNavigation can selectively display tabBar, to satisfy various design needs
-2. onPress functionality exsits only on certain react native components, like TouchableOpacity, Button, not on View or Text
+* In ex-nav, data can be passed around as parameters (similar to react navigation)
+* Add additional stackNavigation can selectively display tabBar, to satisfy various design needs
+* onPress functionality exsits only on certain react native components, like TouchableOpacity, Button, not on View or Text
+
+## Future Directions
+* Add map integration
 
 ## Author
 **Qingxin Yuan**
 
-## Future Directions
-1. Add map integration
+## Acknowledgement
+* Ian Hitchcock for react native animation reference
+* RED Academy for project preparation

@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-// import { Dimensions } from "react-native";
 
 import {typography, colors} from '../../config/styles';
 

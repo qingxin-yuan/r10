@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-// import { Router } from "react-native";
 import { connect } from "react-redux";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import LinearGradient from "../../components/LinearGradient";
 import Schedule from "./Schedule";
@@ -11,11 +10,6 @@ import { fetchFavesFromDB } from "../../redux/modules/faves";
 import { typography, colors } from "../../config/styles";
 
 class ScheduleContainer extends Component {
-  constructor() {
-    super();
-    // this.goToSession = this.goToSession.bind(this);
-  }
-
   static route = {
     navigationBar: {
       title: "Schedule",
@@ -23,7 +17,7 @@ class ScheduleContainer extends Component {
       titleStyle: {
         fontFamily: typography.fontMain
       },
-      renderBackground: LinearGradient,
+      renderBackground: LinearGradient
     }
   };
 
@@ -58,10 +52,10 @@ ScheduleContainer.propTypes = {
   events: PropTypes.array.isRequired,
   isLoading: PropTypes.bool.isRequired,
   currentUID: PropTypes.string.isRequired,
-  faves: PropTypes.object.isRequired,
-}
+  faves: PropTypes.object.isRequired
+};
 
 ScheduleContainer.defaulProps = {
   isLoading: false,
   faves: {}
-}
+};

@@ -11,8 +11,6 @@ const styles = {
   },
   textHeading:{
     fontFamily: typography.fontMain,
-    // paddingVertical: 5,
-    // paddingLeft: 10,
   },
   text:{
     fontFamily: typography.fontMain,

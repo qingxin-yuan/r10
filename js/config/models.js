@@ -1,3 +1,4 @@
+// Realm config file
 import Realm from 'realm';
 
 const FavesSchema = {

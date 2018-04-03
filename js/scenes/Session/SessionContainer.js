@@ -68,8 +68,9 @@ class SessionContainer extends Component {
         }
         this.setState({ data });
       })
-      // eslint-disable-next-line
-      .catch(err => console.log(err));
+      .catch(err => {
+        throw new Error(err);
+      });
   }
 
   render() {
@@ -80,7 +81,7 @@ class SessionContainer extends Component {
           speaker={this.state.data}
           faved={this.state.faved}
         />
-        <View style={{justifyContent: "center", alignItems: "center"}}>
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
           <TouchableOpacity
             onPress={() => this.updateFaves()}
             style={{ width: 250 }}

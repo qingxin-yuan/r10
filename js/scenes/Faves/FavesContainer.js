@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import Faves from "./Faves";
-import realm from "../../config/models";
 import { formatSessionData } from "../../redux/modules/helpers";
 import { fetchFavesFromDB } from "../../redux/modules/faves";
 import { colors, typography } from "../../config/styles";
@@ -30,26 +29,16 @@ class FavesContainer extends Component {
   }
 
   render() {
-    // realm.addListener('change', this.props.dispatch(fetchFavesFromDB))
-    console.log(realm.path);
-    // const data = queryFave();
-    // const faves = {};
-    // data.map((item, key) => faves[item.id] = "exists");
-    // console.log(faves);
     const faves = this.props.faves;
     let events = this.props.events;
 
     events = events.filter(event => {
-      // console.log(faves[event.session_id])
       if (faves[event.session_id] === "exists") {
         return true;
       }
     });
 
-    // console.log(events);
     events = formatSessionData(events);
-
-    // console.log(this.props.currentUID)
     return (
       <Faves data={events} currentUID={this.props.currentUID} faves={faves} />
     );
@@ -74,5 +63,5 @@ FavesContainer.propTypes = {
 FavesContainer.defaultProps = {
   faves: {},
   events: [],
-  currentUID: "",
-}
+  currentUID: ""
+};

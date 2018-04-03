@@ -1,19 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  ScrollView,
-  Text,
-  View,
-  Image,
-} from "react-native";
+import { ScrollView, Text, View, Image } from "react-native";
 
 import logo from "../../assets/images/r10_logo.png";
 import Loader from "../../components/Loader";
-import Accordion from '../../components/Accordion';
+import Accordion from "../../components/Accordion";
 import { styles } from "./styles";
 
 const About = ({ data, isLoading }) => {
-  // let height = "auto";
   return !isLoading ? (
     <View>
       <ScrollView>
@@ -31,10 +25,10 @@ const About = ({ data, isLoading }) => {
           </Text>
           <Text style={styles.heading}>Code of Conduct</Text>
           {data.map((item, index) => (
-            <Accordion 
-            key={index}
-            title={item.title}
-            description={item.description}
+            <Accordion
+              key={index}
+              title={item.title}
+              description={item.description}
             />
           ))}
         </View>

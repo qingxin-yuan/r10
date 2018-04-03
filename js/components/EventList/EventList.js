@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  SectionList,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
+import { SectionList, Text, TouchableOpacity, View } from "react-native";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 import PropTypes from "prop-types";
@@ -15,15 +10,6 @@ import { HeartIcon } from "../Icons";
 import { colors } from "../../config/styles";
 
 const EventList = ({ data, currentUID, faves }) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     data: props.data
-  //   };
-  // }
-  // render() {
-  // console.log(faves[data.session_id]);
-
   return (
     <View>
       <SectionList
@@ -54,7 +40,6 @@ const EventList = ({ data, currentUID, faves }) => {
       />
     </View>
   );
-  // }
 };
 
 export default EventList;
@@ -67,5 +52,5 @@ EventList.propTypes = {
 EventList.defaultProps = {
   data: [],
   currentUID: "",
-  faves: {},
-}
+  faves: {}
+};
